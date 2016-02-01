@@ -72,6 +72,10 @@ function crossReportURL(){
 	return "http://cat.ctripcorp.com/cat/r/t?op=history&domain=All&ip=All&date="+fStartDate+"&reportType=";
 }
 
+function dbURL(){
+  return "http://mysqltools.ops.ctripcorp.com/dbmgmt/dbcapacitymonitor/";
+}
+
 function open_win(){
     var links=[{name:'auth',url:AuthenticatedUserURL()},
     {name:'error',url:CatLastProblemErrorsURL()},
@@ -79,7 +83,8 @@ function open_win(){
     {name:'misshour',url:StateLastHoutMissURL()},
     {name:'home',url:Home()},
     {name:'dump',url:UploadDumpURL()},
-    {name:'crossreport',url:crossReportURL()}];
+    {name:'crossreport',url:crossReportURL()},
+    {name:'db',url:dbURL()}];
     for (var i = links.length - 1; i >= 0; i--) {
     	console.log(links[i].url);
         //var p=window.open(links[i].url,'_blank');
