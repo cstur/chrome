@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+  },
+  "name": "Cat Extension",
+  "description": "",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "cat.png",
+    "default_popup": "cat.html"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ]
+}
