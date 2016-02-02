@@ -21,13 +21,21 @@ Date.prototype.Format = function(fmt)
 }
 
 Date.prototype.getWeek = function() {
-    var onejan = new Date(this.getFullYear(), 0, 1);
-    return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+    var d = new Date(+this);
+    d.setHours(0,0,0);
+    d.setDate(d.getDate()+4-(d.getDay()||7));
+    return Math.ceil((((d-new Date(d.getFullYear(),0,1))/8.64e7)+1)/7);
+
+
 }
 
 function getCheckDay(){
 	var now=new Date();
-	if(now.getWeek()==6){
+
+  var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var week=dayNames[now.getDay()];
+  console.log(dayNames[now.getDay()]);
+	if(week=='Monday'){
 		now.setDate(now.getDate()-3);
 	}else{
 		now.setDate(now.getDate()-1);
